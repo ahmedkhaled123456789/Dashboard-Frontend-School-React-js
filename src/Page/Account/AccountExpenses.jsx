@@ -12,7 +12,7 @@ const AccountExpenses = () => {
     const fetchData = async () => {
       try {
         if( word === null)
-           await dispatch(getExpenses());
+           await dispatch(getExpenses({limit:5}));
   
         
       } catch (error) {
@@ -30,7 +30,7 @@ const AccountExpenses = () => {
 //when click pagination
 const onPress = async (page) => { 
   
-  await dispatch(getExpenses({page:page,limit:100}))
+  await dispatch(getExpenses({page:page}))
 }
 
 const updateStatusPaid = async(id) =>{

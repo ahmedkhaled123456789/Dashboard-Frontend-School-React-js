@@ -1,6 +1,6 @@
 import axios from 'axios'
 
 
-const baseUrl = axios.create({ baseURL: "http://localhost:8000" })
+const baseUrl = axios.create({ baseURL: "https://dashboard-school-node-js.onrender.com/" })
 
 export default baseUrl
