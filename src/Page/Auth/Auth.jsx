@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import logo from "../../image/logo.png";
  
 import LoginHook from "../../hook/auth/login-hook";
+import { ToastContainer } from "react-toastify";
  
 const Auth = () => {
    const [
@@ -14,7 +15,7 @@ const Auth = () => {
     isPress,
   ] = LoginHook();
   return (<>
-  
+   
   <div className="wrapper h-screen w-full flex justify-center items-center ">
     <div className="content px-10 flex justify-center items-center shadow-xl">
     <div className="images px-16 flex flex-col justify-center items-center  ">
@@ -79,9 +80,9 @@ const Auth = () => {
 
             
           </form>
-          <p className="text-white mt-10 text-xs text-center ">© 2021 Firm Foundation School Management</p>
+          <p className="text-white mt-10 text-xs text-center ">© 2024 Firm Foundation School Management</p>
         </div>
-        {isPress === true ? (loading === true ? (<h1>loading</h1> ) : null) : null}
+        {/* {isPress === true ? (loading === true ? (<h1>loading</h1> ) : null) : null} */}
 
       </div>
     
@@ -89,7 +90,13 @@ const Auth = () => {
     </div>
   </div>
    
-  
+  <ToastContainer
+     theme="light"
+position="top-right"
+autoClose={3000}
+closeOnClick
+pauseOnHover={false}
+ />
   
   
   </>

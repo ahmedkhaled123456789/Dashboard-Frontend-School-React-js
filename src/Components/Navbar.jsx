@@ -79,8 +79,8 @@ const handleChange = async(e) =>{
                     <IoIosArrowForward className=" text-gray-700" /> Settings
                   </li>
                   </Link>
-                  <li className="flex gap-x-2 items-center p-2 hover:bg-[#c1c1c1] cursor-pointer text-gray-700">
-                    <IoIosArrowForward onClick={ () => logOut()} className=" text-gray-700" />Logout
+                  <li onClick={ () => logOut()} className="flex gap-x-2 items-center p-2 hover:bg-[#c1c1c1] cursor-pointer text-gray-700">
+                    <IoIosArrowForward  className=" text-gray-700" />Logout
                   </li>
                   
                 </ul>

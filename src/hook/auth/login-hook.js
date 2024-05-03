@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
  import { useDispatch, useSelector } from 'react-redux';
 import { adminLogin } from '../../store/auth/authSlice';
- 
+import { toast } from "react-toastify";
+
 const LoginHook = () => {
     const dispatch = useDispatch();
   
@@ -19,7 +20,11 @@ const LoginHook = () => {
 
     const onSubmit = async (e) => {
       e.preventDefault();
-      
+      if(email === '' || password ==='' ){
+        toast.error("Please complete your data")
+        console.log("Please complete your data")
+      } 
+       
         setIsPress(true)
         setLoading(true)
         await dispatch(adminLogin({
@@ -31,12 +36,11 @@ const LoginHook = () => {
         setIsPress(false)
     }
     const res = useSelector(state => state.auth.loginUser)
-    useEffect(() => {
+     useEffect(() => {
         if (loading === false) {
-            if (res) {
+             if (res) {
                  if (res.data.token) {
-                  console.log(res.data.token)
-                  console.log(res.data)
+                  
 
                     localStorage.setItem("token", res.data.token)
                     localStorage.setItem("user", JSON.stringify(res.data.data))
@@ -48,15 +52,16 @@ const LoginHook = () => {
                     localStorage.removeItem("user")
                 }
 
-                if (res.data.message === "Incorrect email or password") {
+                if (res?.data.message === "Incorrect email or password") {
                     localStorage.removeItem("token")
                     localStorage.removeItem("user")
-                    console.log("كلمة السر او الايميل خطا")
+                    toast.error("Incorrect email or password")
 
                  }
-                setLoading(true)
+                 setLoading(true)
             }
-        }
+         }
+
     }, [loading])
 
     return [email, password, loading, onChangeEmail, onChangePassword, onSubmit, isPress]
