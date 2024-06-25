@@ -10,7 +10,7 @@ const Parent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if( word === null)
+        if( word === null) 
         await dispatch(getStudents());
       } catch (error) {
         console.error("Error fetching parents:", error);

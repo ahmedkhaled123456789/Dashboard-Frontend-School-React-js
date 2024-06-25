@@ -159,7 +159,8 @@ const handleDelete= async (id) =>{
         {teacher.gender}
       </td>
       <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-       {teacher.classLevels &&teacher.classLevels.name}
+       {teacher.classLevels &&teacher.classLevels[0]?.name}
+
       </td>
       <td className="whitespace-nowrap px-4 py-2 text-gray-700">
       {teacher.subject &&teacher.subject.name}
